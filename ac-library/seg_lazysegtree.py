@@ -1,6 +1,4 @@
 """
-初期化部分が公式のものと少し異なる
-
 segtree(ACL移植)の場合
     seg = SegTree(N, op, u_data)
     seg.initialize(arr)
