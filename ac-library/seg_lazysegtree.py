@@ -288,3 +288,22 @@ class LazySegTree(SegTree):
             if (r & -r) == r:
                 break
         return 0
+
+
+if __name__ == "__main__":
+    "https://atcoder.jp/contests/abc185/tasks/abc185_f"
+    from operator import xor
+    import sys
+    input = sys.stdin.readline
+
+    N, Q = map(int, input().split())
+    A = list(map(int, input().split()))
+    seg = SegTree(N, xor, 0)
+    seg.initialize(A)
+    for _ in range(Q):
+        t, x, y = map(int, input().split())
+        if t == 1:
+            a = seg.get(x - 1) ^ y
+            seg.update(x - 1, a)
+        else:
+            print(seg.prod(x - 1, y))
